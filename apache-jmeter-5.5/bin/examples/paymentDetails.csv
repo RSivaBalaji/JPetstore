@@ -1,0 +1,2 @@
+﻿cardType,creditcard,expirydate,firstname,lastname,address1,address2,city,state,zip,country,newOrder
+Visa,999 9999 9999 9999,12/03,test12,test12,test12,test12,test12,test12,test12,test12,Continue

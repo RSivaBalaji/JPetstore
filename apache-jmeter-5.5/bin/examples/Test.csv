@@ -1,0 +1,42 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1734689389070,239,Request Ahmed Sheriff,,,CSL Thread 1-1,text,true,,0,0,3,4,null,0,0,0
+1734689389234,149,Request Ivanovich Baklanov,,,CSL Thread 1-3,text,true,,0,0,4,5,null,0,0,0
+1734689389132,303,Request Ros Schindler,,,CSL Thread 1-2,text,true,,0,0,5,6,null,0,0,0
+1734689389313,227,Request 1,,,CSL Thread 1-1,text,true,,0,0,6,7,null,0,0,0
+1734689389331,248,Request Ahmed Sheriff,,,CSL Thread 1-4,text,true,,0,0,6,7,null,0,0,0
+1734689389384,300,Request 15,,,CSL Thread 1-3,text,true,,0,0,7,8,null,0,0,0
+1734689389526,187,Request Ivanovich Baklanov,,,CSL Thread 1-6,text,true,,0,0,7,8,null,0,0,0
+1734689389540,200,Samurai 13,,,CSL Thread 1-1,text,true,,0,0,8,9,null,0,0,0
+1734689389427,345,Request Ros Schindler,,,CSL Thread 1-5,text,true,,0,0,8,9,null,0,0,0
+1734689389435,352,Request 8,,,CSL Thread 1-2,text,true,,0,0,8,9,null,0,0,0
+1734689389579,239,Request 22,,,CSL Thread 1-4,text,true,,0,0,8,9,null,0,0,0
+1734689389713,118,Request 1,,,CSL Thread 1-6,text,true,,0,0,9,10,null,0,0,0
+1734689389725,129,Request Ros Schindler,,,CSL Thread 1-8,text,true,,0,0,9,10,null,0,0,0
+1734689389625,285,Request Ahmed Sheriff,,,CSL Thread 1-7,text,true,,0,0,9,10,null,0,0,0
+1734689389774,179,Request 29,,,CSL Thread 1-5,text,true,,0,0,10,11,null,0,0,0
+1734689389787,193,Samurai 1,,,CSL Thread 1-2,text,true,,0,0,10,11,null,0,0,0
+1734689389684,345,Samurai 8,,,CSL Thread 1-3,text,true,,0,0,10,11,null,0,0,0
+1734689389819,225,Samurai 10,,,CSL Thread 1-4,text,true,,0,0,10,11,null,0,0,0
+1734689389825,231,Request Ivanovich Baklanov,,,CSL Thread 1-9,text,true,,0,0,10,11,null,0,0,0
+1734689389954,104,Samurai 11,,,CSL Thread 1-5,text,true,,0,0,10,11,null,0,0,0
+1734689389832,237,Samurai 7,,,CSL Thread 1-6,text,true,,0,0,10,11,null,0,0,0
+1734689389854,261,Request 15,,,CSL Thread 1-8,text,true,,0,0,10,11,null,0,0,0
+1734689389911,317,Request 8,,,CSL Thread 1-7,text,true,,0,0,10,11,null,0,0,0
+1734689389924,330,Request Ahmed Sheriff,,,CSL Thread 1-10,text,true,,0,0,10,11,null,0,0,0
+1734689390057,208,Request 22,,,CSL Thread 1-9,text,true,,0,0,10,11,null,0,0,0
+1734689390228,124,Samurai 20,,,CSL Thread 1-7,text,true,,0,0,10,11,null,0,0,0
+1734689390116,265,Samurai 8,,,CSL Thread 1-8,text,true,,0,0,10,11,null,0,0,0
+1734689390254,150,Request 29,,,CSL Thread 1-10,text,true,,0,0,10,11,null,0,0,0
+1734689390265,161,Samurai 9,,,CSL Thread 1-9,text,true,,0,0,10,11,null,0,0,0
+1734689390405,299,Samurai 15,,,CSL Thread 1-10,text,true,,0,0,10,11,null,0,0,0
+1734689390070,460,Assertion R Test,200,OK,CSL Thread 1-6,text,true,,22249,119,10,11,https://www.google.co.in/,444,0,59
+1734689390353,534,Assertion R Test,200,OK,CSL Thread 1-7,text,true,,22335,119,10,11,https://www.google.co.in/,495,0,60
+1734689390383,499,Assertion R Test,200,OK,CSL Thread 1-8,text,true,,22228,119,10,11,https://www.google.co.in/,458,0,52
+1734689390029,456,Assertion R Test,200,OK,CSL Thread 1-3,text,true,,22215,119,10,11,https://www.google.co.in/,452,0,59
+1734689390427,456,Assertion R Test,200,OK,CSL Thread 1-9,text,true,,22225,119,10,11,https://www.google.co.in/,435,0,51
+1734689390045,448,Assertion R Test,200,OK,CSL Thread 1-4,text,true,,22282,119,10,11,https://www.google.co.in/,436,0,58
+1734689389810,753,Assertion R Test,200,OK,CSL Thread 1-1,text,true,,22260,119,10,11,https://www.google.co.in/,712,0,259
+1734689389981,528,Assertion R Test,200,OK,CSL Thread 1-2,text,true,,22254,119,10,11,https://www.google.co.in/,500,0,89
+1734689390059,494,Assertion R Test,200,OK,CSL Thread 1-5,text,true,,22196,119,10,11,https://www.google.co.in/,476,0,70
+1734689390705,489,Assertion R Test,200,OK,CSL Thread 1-10,text,true,,22212,119,1,2,https://www.google.co.in/,471,0,52
+1734689389055,9162,JDBC Request,200,OK,JDBC Thread 2-1,text,true,,134,0,1,1,null,9160,0,8966

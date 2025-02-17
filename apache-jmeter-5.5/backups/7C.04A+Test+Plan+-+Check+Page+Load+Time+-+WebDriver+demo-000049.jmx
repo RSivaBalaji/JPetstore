@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan - Check Page Load Time - WebDriver demo" enabled="true">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <stringProp name="TestPlan.comments"></stringProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">3</stringProp>
+        </elementProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="false">
+          <stringProp name="WebDriverSampler.script">import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.WebDriverWait
+import org.openqa.selenium.support.ui.ExpectedConditions
+import java.time.Duration
+
+//Start mesauring the page load time
+WDS.SampleResult.sampleStart();
+
+//open website
+def driver = WDS.browser
+driver.get(&quot;https://demo.opencart.com/&quot;)
+
+//wait until page loads
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10))
+wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName(&quot;body&quot;)))
+
+//stop measuring page load time
+WDS.sampleResult.sampleEnd();
+
+long loadTime= WDS.sampleResult.getTime();
+WDS.log.info(&quot;Page load time=&quot;+ loadTime + &quot;ms&quot;)</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config" enabled="false">
+            <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <stringProp name="WebDriverConfig.driver_path">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\chromedriver.exe</stringProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <boolProp name="WebDriverConfig.headless">false</boolProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <stringProp name="ChromeDriverConfig.additional_args"></stringProp>
+            <stringProp name="ChromeDriverConfig.binary_path"></stringProp>
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+          <hashTree/>
+          <com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.EdgeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig" testname="jp@gc - Edge Driver Config" enabled="true">
+            <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <stringProp name="WebDriverConfig.driver_path">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\msedgedriver.exe</stringProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <boolProp name="WebDriverConfig.headless">false</boolProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <stringProp name="EdgeDriverConfig.additional_args"></stringProp>
+            <stringProp name="EdgeDriverConfig.binary_path"></stringProp>
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="false">
+          <stringProp name="WebDriverSampler.script">// Start sample time measurement
+WDS.sampleResult.sampleStart()
+
+try {
+    // Navigate to OpenCart website
+    WDS.browser.get(&apos;https://www.saucedemo.com/&apos;)
+
+    // Check if page title contains &apos;OpenCart&apos;
+    if (WDS.browser.getTitle().contains(&quot;Swag Labs&quot;)) {
+        WDS.sampleResult.setSuccessful(true)  // Mark test as passed
+        WDS.log.info(&quot;Page loaded successfully!&quot;)
+    } else {
+        WDS.sampleResult.setSuccessful(false) // Mark test as failed
+        WDS.log.error(&quot;Page title mismatch!&quot;)
+    }
+
+} catch (Exception e) {
+    WDS.sampleResult.setSuccessful(false)  // Mark test as failed
+    WDS.log.error(&quot;Error while loading page: &quot; + e.getMessage())
+}
+
+// End sample time measurement
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.EdgeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig" testname="jp@gc - Edge Driver Config" enabled="true">
+            <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <stringProp name="WebDriverConfig.driver_path">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\msedgedriver.exe</stringProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <boolProp name="WebDriverConfig.headless">false</boolProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <stringProp name="EdgeDriverConfig.additional_args"></stringProp>
+            <stringProp name="EdgeDriverConfig.binary_path"></stringProp>
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="false">
+          <stringProp name="WebDriverSampler.script">// Initialize WebDriver
+WDS.sampleResult.sampleStart()
+WDS.log.info(&quot;Launching Edge Browser&quot;)
+
+// Open browser
+WDS.browser.get(&apos;https://www.saucedemo.com/&apos;)
+
+// Login to SauceDemo
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;username\&quot;]&quot;)).sendKeys(&quot;standard_user&quot;)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;password\&quot;]&quot;)).sendKeys(&quot;secret_sauce&quot;)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;login-button\&quot;]&quot;)).click()
+
+// Add products to cart
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;add-to-cart-sauce-labs-backpack\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;add-to-cart-sauce-labs-bike-light\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;add-to-cart-sauce-labs-bolt-t-shirt\&quot;]&quot;)).click()
+
+// Go to Cart and Checkout
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;shopping-cart-link\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;checkout\&quot;]&quot;)).click()
+
+// Fill Checkout Form
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;firstName\&quot;]&quot;)).sendKeys(&quot;Ervin&quot;)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;lastName\&quot;]&quot;)).sendKeys(&quot;Romall&quot;)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;postalCode\&quot;]&quot;)).sendKeys(&quot;2039291&quot;)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;continue\&quot;]&quot;)).click()
+
+// Finish Order
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;finish\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;back-to-products\&quot;]&quot;)).click()
+
+WDS.log.info(&quot;Test Completed Successfully!&quot;)
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.EdgeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig" testname="jp@gc - Edge Driver Config" enabled="true">
+            <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <stringProp name="WebDriverConfig.driver_path">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\msedgedriver.exe</stringProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <boolProp name="WebDriverConfig.headless">false</boolProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <stringProp name="EdgeDriverConfig.additional_args"></stringProp>
+            <stringProp name="EdgeDriverConfig.binary_path"></stringProp>
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="false">
+          <stringProp name="WebDriverSampler.script">// Logging the start of test
+WDS.log.info(&quot;Launching Chrome Browser&quot;)
+
+// Get data from CSV
+def username = WDS.vars.get(&quot;username&quot;)
+def password = WDS.vars.get(&quot;password&quot;)
+def firstName = WDS.vars.get(&quot;firstName&quot;)
+def lastName = WDS.vars.get(&quot;lastName&quot;)
+def postalCode = WDS.vars.get(&quot;postalCode&quot;)
+
+// Open website
+WDS.browser.get(&apos;https://www.saucedemo.com/&apos;)
+
+// Login using CSV data
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;username\&quot;]&quot;)).sendKeys(username)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;password\&quot;]&quot;)).sendKeys(password)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;login-button\&quot;]&quot;)).click()
+
+// Add items to cart
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;add-to-cart-sauce-labs-backpack\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;add-to-cart-sauce-labs-bike-light\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;add-to-cart-sauce-labs-bolt-t-shirt\&quot;]&quot;)).click()
+
+// Go to cart &amp; checkout
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;shopping-cart-link\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;checkout\&quot;]&quot;)).click()
+
+// Fill Checkout Form
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;firstName\&quot;]&quot;)).sendKeys(firstName)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;lastName\&quot;]&quot;)).sendKeys(lastName)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;postalCode\&quot;]&quot;)).sendKeys(postalCode)
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;continue\&quot;]&quot;)).click()
+
+// Finish Order
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;finish\&quot;]&quot;)).click()
+WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&quot;[data-test=\&quot;back-to-products\&quot;]&quot;)).click()
+
+WDS.log.info(&quot;Test Completed Successfully!&quot;)
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.EdgeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig" testname="jp@gc - Edge Driver Config" enabled="true">
+            <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <stringProp name="WebDriverConfig.driver_path">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\msedgedriver.exe</stringProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <boolProp name="WebDriverConfig.headless">false</boolProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <stringProp name="EdgeDriverConfig.additional_args"></stringProp>
+            <stringProp name="EdgeDriverConfig.binary_path"></stringProp>
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">C:/Users/sivabr/Downloads/CFRS/apache-jmeter-5.5/bin/examples/userData.csv</stringProp>
+            <boolProp name="ignoreFirstLine">true</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames">username,password,firstName,lastName,postalCode</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="false">
+          <stringProp name="WebDriverSampler.script">// Open the first page (Homepage)
+WDS.browser.get(&apos;https://petstore.octoperf.com/actions/Catalog.action&apos;);
+
+// Wait for page to load
+var wait = new org.openqa.selenium.support.ui.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(10));
+wait.until(org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.tagName(&apos;body&apos;)));
+
+// Add 5 seconds of think time
+java.lang.Thread.sleep(5000);
+
+// Open FISH category
+var fishCategory = WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&apos;a[href*=&quot;categoryId=FISH&quot;]&apos;));
+fishCategory.click();
+
+// Wait for FISH page to load
+wait.until(org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.tagName(&apos;body&apos;)));
+
+// Add 5 seconds of think time
+java.lang.Thread.sleep(5000);
+
+// Open DOGS category
+var dogsCategory = WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&apos;a[href*=&quot;categoryId=DOGS&quot;]&apos;));
+dogsCategory.click();
+
+// Wait for DOGS page to load
+wait.until(org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.tagName(&apos;body&apos;)));
+
+// Add 5 seconds of think time
+java.lang.Thread.sleep(5000);
+
+// Open REPTILES category
+var reptilesCategory = WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&apos;a[href*=&quot;categoryId=REPTILES&quot;]&apos;));
+reptilesCategory.click();
+
+// Wait for REPTILES page to load
+wait.until(org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.tagName(&apos;body&apos;)));
+
+// Add 5 seconds of think time
+java.lang.Thread.sleep(5000);</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.EdgeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig" testname="jp@gc - Edge Driver Config" enabled="true">
+            <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <stringProp name="WebDriverConfig.driver_path">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\msedgedriver.exe</stringProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <boolProp name="WebDriverConfig.headless">false</boolProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <stringProp name="EdgeDriverConfig.additional_args"></stringProp>
+            <stringProp name="EdgeDriverConfig.binary_path"></stringProp>
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">// Open the first page (Homepage)
+WDS.browser.get(&apos;https://petstore.octoperf.com/actions/Catalog.action&apos;);
+
+// Wait for page to load
+var wait = new org.openqa.selenium.support.ui.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(10));
+wait.until(org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.tagName(&apos;body&apos;)));
+
+// Add 5 seconds of think time
+java.lang.Thread.sleep(5000);
+
+// Get category from CSV file
+var category = &apos;${category}&apos;;  // Reading from CSV
+
+// Open category page dynamically
+var categoryElement = WDS.browser.findElement(org.openqa.selenium.By.cssSelector(&apos;a[href*=&quot;categoryId=&apos; + category + &apos;&quot;]&apos;));
+categoryElement.click();
+
+// Wait for category page to load
+wait.until(org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.tagName(&apos;body&apos;)));
+
+// Add 5 seconds of think time
+java.lang.Thread.sleep(5000);</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">groovy</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="filename">C:/Users/sivabr/Downloads/CFRS/apache-jmeter-5.5/bin/examples/params.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">category</stringProp>
+            <boolProp name="ignoreFirstLine">true</boolProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.EdgeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig" testname="jp@gc - Edge Driver Config" enabled="true">
+            <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+            <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+            <stringProp name="WebDriverConfig.driver_path">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\msedgedriver.exe</stringProp>
+            <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+            <boolProp name="WebDriverConfig.headless">false</boolProp>
+            <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+            <stringProp name="EdgeDriverConfig.additional_args"></stringProp>
+            <stringProp name="EdgeDriverConfig.binary_path"></stringProp>
+            <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+            <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+            <stringProp name="WebDriverConfig.http_host"></stringProp>
+            <intProp name="WebDriverConfig.http_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+            <stringProp name="WebDriverConfig.https_host"></stringProp>
+            <intProp name="WebDriverConfig.https_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+            <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+            <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+            <stringProp name="WebDriverConfig.socks_host"></stringProp>
+            <intProp name="WebDriverConfig.socks_port">8080</intProp>
+            <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+            <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.config.EdgeDriverConfig>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\Soros.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

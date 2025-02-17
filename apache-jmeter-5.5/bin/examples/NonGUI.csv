@@ -1,0 +1,51 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1735033867936,115,Request Ros Schindler,,,CSL Thread 1-2,text,true,,0,0,3,8,null,0,0,0
+1735033867893,330,Request Ahmed Sheriff,,,CSL Thread 1-1,text,true,,0,0,4,9,null,0,0,0
+1735033868037,216,Request Ivanovich Baklanov,,,CSL Thread 1-3,text,true,,0,0,5,10,null,0,0,0
+1735033868054,234,Request 8,,,CSL Thread 1-2,text,true,,0,0,5,10,null,0,0,0
+1735033868223,150,Request 1,,,CSL Thread 1-1,text,true,,0,0,6,11,null,0,0,0
+1735033868228,153,Request Ros Schindler,,,CSL Thread 1-5,text,true,,0,0,6,11,null,0,0,0
+1735033868253,179,Request 15,,,CSL Thread 1-3,text,true,,0,0,7,12,null,0,0,0
+1735033868134,314,Request Ahmed Sheriff,,,CSL Thread 1-4,text,true,,0,0,7,12,null,0,0,0
+1735033868288,214,Samurai 7,,,CSL Thread 1-2,text,true,,0,0,7,12,null,0,0,0
+1735033868432,103,Samurai 20,,,CSL Thread 1-3,text,true,,0,0,8,13,null,0,0,0
+1735033868449,120,Request 22,,,CSL Thread 1-4,text,true,,0,0,8,13,null,0,0,0
+1735033868328,254,Request Ivanovich Baklanov,,,CSL Thread 1-6,text,true,,0,0,8,13,null,0,0,0
+1735033868097,553,Get Loco Weather,200,OK,Auto Loco API's  5-1,text,true,,842,200,1,14,https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=3f44225bbf6e5699edb16b0edf704ace,553,0,511
+1735033868374,298,Samurai 9,,,CSL Thread 1-1,text,true,,0,0,9,14,null,0,0,0
+1735033868382,307,Request 29,,,CSL Thread 1-5,text,true,,0,0,9,14,null,0,0,0
+1735033868527,199,Request Ros Schindler,,,CSL Thread 1-8,text,true,,0,0,10,15,null,0,0,0
+1735033868426,352,Request Ahmed Sheriff,,,CSL Thread 1-7,text,true,,0,0,10,15,null,0,0,0
+1735033868690,105,Samurai 9,,,CSL Thread 1-5,text,true,,0,0,10,15,null,0,0,0
+1735033868569,240,Samurai 8,,,CSL Thread 1-4,text,true,,0,0,10,15,null,0,0,0
+1735033868582,253,Request 1,,,CSL Thread 1-6,text,true,,0,0,10,15,null,0,0,0
+1735033868727,141,Request Ahmed Sheriff,,,CSL Thread 1-10,text,true,,0,0,10,15,null,0,0,0
+1735033868727,143,Request 15,,,CSL Thread 1-8,text,true,,0,0,10,15,null,0,0,0
+1735033868627,298,Request Ivanovich Baklanov,,,CSL Thread 1-9,text,true,,0,0,10,15,null,0,0,0
+1735033868097,849,Post Request,201,Created,API Rest Group 4-1,text,true,,1111,235,1,15,https://reqres.in/api/users/,849,0,511
+1735033868948,16,Get Request,200,OK,API Rest Group 4-1,text,true,,2214,128,1,15,https://reqres.in/api/users?page=2,16,0,0
+1735033868779,193,Request 8,,,CSL Thread 1-7,text,true,,0,0,10,15,null,0,0,0
+1735033868835,251,Samurai 15,,,CSL Thread 1-6,text,true,,0,0,10,15,null,0,0,0
+1735033868972,133,Samurai 7,,,CSL Thread 1-7,text,true,,0,0,10,15,null,0,0,0
+1735033868868,283,Request 29,,,CSL Thread 1-10,text,true,,0,0,10,15,null,0,0,0
+1735033868870,286,Samurai 15,,,CSL Thread 1-8,text,true,,0,0,10,15,null,0,0,0
+1735033868925,341,Request 22,,,CSL Thread 1-9,text,true,,0,0,10,15,null,0,0,0
+1735033868965,313,Put Request,200,OK,API Rest Group 4-1,text,true,,1094,220,1,15,https://reqres.in/api/users/452,313,0,0
+1735033869266,171,Samurai 15,,,CSL Thread 1-9,text,true,,0,0,10,15,null,0,0,0
+1735033869152,313,Samurai 15,,,CSL Thread 1-10,text,true,,0,0,10,15,null,0,0,0
+1735033869278,308,Delete Request,204,No Content,API Rest Group 4-1,,true,,1014,211,1,15,https://reqres.in/api/users/452,0,0,0
+1735033868652,1006,Soap WSDL Request,200,OK,Auto Loco API's  5-1,text,true,,27828,163,1,14,https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl=,789,0,95
+1735033869087,528,Assertion R Test,200,OK,CSL Thread 1-6,text,true,,22928,119,10,14,https://www.google.co.in/,487,0,56
+1735033869157,467,Assertion R Test,200,OK,CSL Thread 1-8,text,true,,22826,119,10,14,https://www.google.co.in/,458,0,54
+1735033868796,846,Assertion R Test,200,OK,CSL Thread 1-5,text,true,,22900,119,10,14,https://www.google.co.in/,815,0,60
+1735033868536,610,Assertion R Test,200,OK,CSL Thread 1-3,text,true,,22918,119,10,15,https://www.google.co.in/,575,0,148
+1735033869105,496,Assertion R Test,200,OK,CSL Thread 1-7,text,true,,22917,119,10,14,https://www.google.co.in/,453,0,52
+1735033868502,629,Assertion R Test,200,OK,CSL Thread 1-2,text,true,,22882,119,10,15,https://www.google.co.in/,598,0,180
+1735033868673,512,Assertion R Test,200,OK,CSL Thread 1-1,text,true,,22910,119,10,15,https://www.google.co.in/,458,0,59
+1735033868810,478,Assertion R Test,200,OK,CSL Thread 1-4,text,true,,22909,119,10,15,https://www.google.co.in/,456,0,57
+1735033869438,477,Assertion R Test,200,OK,CSL Thread 1-9,text,true,,22908,119,2,5,https://www.google.co.in/,461,0,77
+1735033869466,507,Assertion R Test,200,OK,CSL Thread 1-10,text,true,,22960,119,1,4,https://www.google.co.in/,463,0,63
+1735033867865,2870,Post FTP Request,200,OK,File Group 3-1,,true,,0,74,1,3,ftp://ftp.dlptest.com/Christmas (Ascii)  <- C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\Content.txt,569,0,0
+1735033870736,1910,Get FTP Request,200,OK,File Group 3-1,text,true,,74,0,1,3,ftp://ftp.dlptest.com/Christmas (Ascii)  -> C:\Users\sivabr\Downloads\CFRS\apache-jmeter-5.5\bin\examples\Luftwaffe.txt,479,0,0
+1735033867856,12971,JDBC Hitter,200,OK,JDBC Brics 6-1,text,true,,134,0,1,2,null,12969,0,12785
+1735033867855,14976,JDBC Request,200,OK,JDBC Thread 2-1,text,true,,134,0,1,1,null,14975,0,14720

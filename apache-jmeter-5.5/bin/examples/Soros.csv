@@ -1,0 +1,4 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1739277595236,12636,jp@gc - WebDriver Sampler,200,OK,Thread Group 1-1,text,true,,3804,0,1,1,https://petstore.octoperf.com/actions/Catalog.action;jsessionid=2A2E3F5FC476B7E5D9A163D743BDD4BD?viewCategory=&categoryId=DOGS,0,0,0
+1739277607873,10899,jp@gc - WebDriver Sampler,200,OK,Thread Group 1-1,text,true,,3260,0,1,1,https://petstore.octoperf.com/actions/Catalog.action?viewCategory=&categoryId=REPTILES,0,0,0
+1739277618772,10837,jp@gc - WebDriver Sampler,200,OK,Thread Group 1-1,text,true,,3804,0,1,1,https://petstore.octoperf.com/actions/Catalog.action?viewCategory=&categoryId=DOGS,0,0,0
